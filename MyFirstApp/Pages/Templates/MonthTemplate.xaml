@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MyFirstApp.Pages.Templates"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="MyFirstApp.Pages.Templates.MonthTemplate">
+    <ContentPage.Resources>
+        <ControlTemplate x:Key="MonthNameControlTemplate">
+            <Frame BindingContext="{Binding Source={RelativeSource TemplatedParent}}"
+                 BackgroundColor="{Binding CardColor}"
+                 BorderColor="{Binding BorderColor}"
+                 CornerRadius="5"
+                 HasShadow="True"
+                 Padding="8"
+                 HorizontalOptions="Center"
+                 VerticalOptions="Center">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <HorizontalStackLayout Grid.Row="0" Grid.ColumnSpan="3">
+                        <Label Text="{Binding MonthName}" />
+                        <Label Text="{Binding Sum}" />
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout Grid.Row="1" Grid.ColumnSpan="3">
+                        <Button Clicked="Button_Clicked"></Button>
+                        <Button Clicked="Button_Clicked"></Button>
+                        <Button Clicked="Button_Clicked"></Button>
+                    </HorizontalStackLayout>
+                </Grid>
+            </Frame>
+        </ControlTemplate>
+    </ContentPage.Resources>
+</ContentView>
+
+

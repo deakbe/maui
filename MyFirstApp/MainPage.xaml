@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:controls="clr-namespace:MyFirstApp.Pages.Templates"
+             xmlns:local="clr-namespace:MyFirstApp"
+             x:Class="MyFirstApp.MainPage">
+
+    <ContentPage.BindingContext>
+        <local:MainPageViewModel/>
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Text="AYCM annaual price:" />
+
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Text="{Binding AnnualPrice}"/>
+
+                <Label
+                    Grid.Row="1"
+                    Grid.ColumnSpan="2"
+                    Text="{Binding MonthlyPrice, StringFormat='AYCM monthly price = {0:F0}'}"
+                    Style="{StaticResource SubHeadline}" />
+
+                <Grid Grid.Row="2"
+                      Grid.ColumnSpan="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+
+                    <VerticalStackLayout Grid.Column="0">
+                        <controls:MonthTemplate MonthName="Január: "
+                        ControlTemplate="{StaticResource MonthNameControlTemplate}"/>
+                        
+                        <controls:MonthTemplate MonthName="Március: "
+                        ControlTemplate="{StaticResource MonthNameControlTemplate}"/>
+                        
+                        <controls:MonthTemplate MonthName="Május: "
+                        ControlTemplate="{StaticResource MonthNameControlTemplate}"/>
+                        
+                        <controls:MonthTemplate MonthName="Július: "
+                        ControlTemplate="{StaticResource MonthNameControlTemplate}"/>
+                        
+                        <controls:MonthTemplate MonthName="Szeptember: "
+                        ControlTemplate="{StaticResource MonthNameControlTemplate}"/>
+                        
+                        <controls:MonthTemplate MonthName="November: "
+                        ControlTemplate="{StaticResource MonthNameControlTemplate}"/>
+                        
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Grid.Column="1">
+                        <controls:MonthTemplate MonthName="Február: "
+                        ControlTemplate="{StaticResource MonthNameControlTemplate}"/>
+
+                        <controls:MonthTemplate MonthName="Április: "
+                        ControlTemplate="{StaticResource MonthNameControlTemplate}"/>
+
+                        <controls:MonthTemplate MonthName="Június: "
+                        ControlTemplate="{StaticResource MonthNameControlTemplate}"/>
+
+                        <controls:MonthTemplate MonthName="Augusztus: "
+                        ControlTemplate="{StaticResource MonthNameControlTemplate}"/>
+
+                        <controls:MonthTemplate MonthName="Október: "
+                        ControlTemplate="{StaticResource MonthNameControlTemplate}"/>
+
+                        <controls:MonthTemplate MonthName="December: "
+                        ControlTemplate="{StaticResource MonthNameControlTemplate}"/>
+
+                    </VerticalStackLayout>
+
+
+
+
+
+                </Grid>
+
+                <Button
+                    Grid.Row="3"
+                    Grid.ColumnSpan="2"
+                    x:Name="CounterBtn"
+                    Text="Click me" 
+                    SemanticProperties.Hint="Counts the number of times you click"
+                    Clicked="OnCounterClicked"
+                    HorizontalOptions="Fill" />
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
